@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Plus, Users, MessageSquare, Calendar, Clock, User } from 'lucide-react';
+import { AppLayout } from '@/components/layout/AppLayout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Header } from '@/components/layout/Header';
 import { TaskBoard } from '@/components/tasks/TaskBoard';
 import { ProjectDiscussion } from '@/components/project/ProjectDiscussion';
 import { ProjectMembers } from '@/components/project/ProjectMembers';
@@ -101,10 +101,8 @@ export default function ProjectDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="container mx-auto p-6">
+    <AppLayout>
+      <div className="container mx-auto">
         {/* Project Header */}
         <div className="flex items-center gap-4 mb-6">
           <Button
@@ -205,7 +203,7 @@ export default function ProjectDetail() {
             />
           </TabsContent>
         </Tabs>
-      </main>
-    </div>
+      </div>
+    </AppLayout>
   );
 }

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User, Mail, Save, LogOut, ArrowLeft } from 'lucide-react';
+import { AppLayout } from '@/components/layout/AppLayout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Header } from '@/components/layout/Header';
 import { useToast } from '@/hooks/use-toast';
 
 export default function Profile() {
@@ -52,10 +52,8 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="container mx-auto p-6">
+    <AppLayout>
+      <div className="container mx-auto">
         <div className="flex items-center gap-4 mb-6">
           <Button
             variant="ghost"
@@ -246,7 +244,7 @@ export default function Profile() {
             </CardContent>
           </Card>
         </div>
-      </main>
-    </div>
+      </div>
+    </AppLayout>
   );
 }

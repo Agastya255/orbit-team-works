@@ -1,4 +1,4 @@
-import { Bell, Menu, User, LogOut } from 'lucide-react';
+import { Bell, User, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import {
@@ -9,13 +9,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 
-interface HeaderProps {
-  onMenuClick?: () => void;
-  showMenuButton?: boolean;
-}
-
-export function Header({ onMenuClick, showMenuButton = false }: HeaderProps) {
+export function Header() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -25,17 +21,7 @@ export function Header({ onMenuClick, showMenuButton = false }: HeaderProps) {
   return (
     <header className="bg-card border-b shadow-sm px-4 py-3 flex items-center justify-between">
       <div className="flex items-center gap-4">
-        {showMenuButton && (
-          <Button variant="ghost" size="sm" onClick={onMenuClick}>
-            <Menu className="h-5 w-5" />
-          </Button>
-        )}
-        
-        <div className="flex items-center gap-2">
-          <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            SynergySphere
-          </h1>
-        </div>
+        <SidebarTrigger className="text-sidebar-foreground hover:bg-sidebar-accent" />
       </div>
 
       <div className="flex items-center gap-3">
